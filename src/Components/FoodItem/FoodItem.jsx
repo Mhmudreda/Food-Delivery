@@ -2,6 +2,7 @@ import { useContext, useState } from 'react';
 import { assets } from '../../assets/assets';
 import './FoodItem.css'
 import { StoreContext } from '../../Context/StoreContext';
+import { motion } from "motion/react"
 
 
 const FoodItem = ({id,name , price , description , image}) => {
@@ -11,7 +12,16 @@ const FoodItem = ({id,name , price , description , image}) => {
 
     return <>
 
-    <div className="food-item">
+    <motion.div
+     // {--- Animation ---}
+     initial={{opacity:0 ,x:-100}}
+     transition={{duration: 1}}
+     whileInView={{opacity:1 , x:0}}
+     viewport={{once:false}}
+    
+    
+    
+    className="food-item">
         <div className="food-item-img-container">
             <img src={image} className='food-item-image' alt="" />
             {
@@ -37,7 +47,7 @@ const FoodItem = ({id,name , price , description , image}) => {
             <p className='food-item-price'>${price}</p>
         </div>
        
-    </div>
+    </motion.div>
 
     
     

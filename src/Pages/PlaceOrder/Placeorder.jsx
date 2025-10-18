@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 import './Placeorder.css'
 import { StoreContext } from '../../Context/StoreContext';
+import { motion } from "motion/react"
 
 const Placeorder = () => {
 
@@ -10,7 +11,15 @@ const Placeorder = () => {
     return <>
     <form className='place-oreder'>
 
-        <div className="place-order-left">
+        <motion.div
+         // {--- Animation ---}
+     initial={{opacity:0 ,x:-150}}
+     transition={{duration: 1.5}}
+     whileInView={{opacity:1 , x:0}}
+     viewport={{once:false}}
+        
+        
+        className="place-order-left">
             <p className='title'>Delivery Information</p>    
             <div className="multi-felids">
                 <input type="text" placeholder='First Name' />
@@ -27,9 +36,17 @@ const Placeorder = () => {
                 <input type="text" placeholder='country' />
             </div>
             <input type="text" placeholder='Phone' />
-        </div>
+        </motion.div>
 
-        <div className="place-order-right">
+        <motion.div
+         // {--- Animation ---}
+     initial={{opacity:0 ,x:150}}
+     transition={{duration: 1.5}}
+     whileInView={{opacity:1 , x:0}}
+     viewport={{once:false}}
+        
+        
+        className="place-order-right">
                  <div className="cart-total">
                 <h2>Cart Total</h2>
                 <div>
@@ -52,7 +69,7 @@ const Placeorder = () => {
                 <button >PROCEED TO PAYMENT</button>
             </div>
             
-        </div>
+        </motion.div>
         
     </form>
     

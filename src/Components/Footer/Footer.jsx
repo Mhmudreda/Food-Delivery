@@ -1,9 +1,17 @@
 import { assets } from '../../assets/assets';
 import './Footer.css'
+import { motion } from "motion/react"
 
 const Footer = () => {
     return <>
-    <div className="footer" id='footer'>
+    <motion.div
+     // {--- Animation ---}
+     initial={{opacity:0 ,x:-200}}
+     transition={{duration: 1}}
+     whileInView={{opacity:1 , x:0}}
+     viewport={{once:false}}
+    
+    className="footer" id='footer'>
         <div className="footer-content">
             <div className="footer-content-left">
                <img src={assets.logo} alt="" />
@@ -36,7 +44,7 @@ const Footer = () => {
         </div>
         <hr />
         <p className='footer-copyright'>copyright 2025 & Tomato.com - All Right Reserved</p>
-    </div>
+    </motion.div>
     
     
     </>

@@ -3,6 +3,7 @@ import { useContext } from 'react';
 import './Cart.css'
 import { StoreContext } from '../../Context/StoreContext';
 import { useNavigate } from 'react-router-dom';
+import { motion } from "motion/react"
 
 const Cart = () => {
 
@@ -11,7 +12,15 @@ const Cart = () => {
     const navigate = useNavigate()
     return <>
     <div className="cart">
-        <div className="cart-item">
+        <motion.div
+        // {--- Animation ---}
+     initial={{opacity:0 ,y:-50}}
+     transition={{duration: 1.5}}
+     whileInView={{opacity:1 , y:0}}
+     viewport={{once:false}}
+        
+        
+        className="cart-item">
             <div className="cart-item-title">
                 <p>Items</p>
                 <p>Title</p>
@@ -42,10 +51,17 @@ const Cart = () => {
                     )
                 }
             })}
-        </div>
+        </motion.div>
 
         <div className="cart-bottom">
-            <div className="cart-total">
+            <motion.div
+            // {--- Animation ---}
+     initial={{opacity:0 ,x:-100}}
+     transition={{duration: 1.5}}
+     whileInView={{opacity:1 , x:0}}
+     viewport={{once:false}}
+            
+            className="cart-total">
                 <h2>Cart Total</h2>
                 <div >
                     <div className="cart-total-details">
@@ -65,8 +81,16 @@ const Cart = () => {
                     <hr />
                 </div>
                 <button onClick={()=>navigate('/placeorder')}>PROCEED TO CHECKOUT</button>
-            </div>
-            <div className="cart-promocode">
+            </motion.div>
+            <motion.div
+            // {--- Animation ---}
+     initial={{opacity:0 ,x:100}}
+     transition={{duration: 1.5}}
+     whileInView={{opacity:1 , x:0}}
+     viewport={{once:false}}
+            
+            
+            className="cart-promocode">
                 <div>
                     <p>If you have a promocode, Enter it here</p>
                     <div className="cart-promocode-input">
@@ -74,7 +98,7 @@ const Cart = () => {
                         <button>Submit</button>
                     </div>
                 </div>
-            </div>
+            </motion.div>
         </div>
     </div>
     
