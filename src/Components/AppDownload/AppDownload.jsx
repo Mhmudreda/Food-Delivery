@@ -1,7 +1,7 @@
 
-import  image  from './assets/Frame 12';
 import './AppDownload.css'
-import { motion } from "motion/react"
+import { motion } from "framer-motion"
+import { assets } from '../../assets/assets'
 
 const AppDownload = () => {
     return <>
