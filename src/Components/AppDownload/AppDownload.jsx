@@ -1,5 +1,5 @@
 
-import { assets } from '../../assets/assets';
+import  image  from './assets/Frame 12';
 import './AppDownload.css'
 import { motion } from "motion/react"
 
